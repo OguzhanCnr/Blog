@@ -1,0 +1,32 @@
+﻿@model Users
+@{
+    Layout = "_Layout";
+}
+
+    <div class="container mt-2">
+        <form asp-action="Edit" asp-controller="Users" method="post">
+
+            <input type="hidden" asp-for="UserId" />
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" asp-for="Username" class="form-control" />
+
+                <label>Password</label>
+                <input type="text" asp-for="Password" class="form-control" />
+
+                <label>Name</label>
+                <input type="text" asp-for="Name" class="form-control" />
+
+                <label>Surname</label>
+                <input type="text" asp-for="Surname" class="form-control" />
+
+                <label>Text</label>
+                <input type="text" asp-for="Text" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+

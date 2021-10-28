@@ -1,0 +1,44 @@
+﻿@model List<Users>
+@{
+    Layout = "_Layout";
+}
+
+    <div class="container mt-2" >
+       
+        <div class="text-end pr-2 my-2">
+            <a asp-action="Add" asp-controller="Users" class="btn btn-primary btn-sm">Yeni Kullanıcı Ekle</a>
+
+        </div>
+        <table class="table table-hover table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var users in Model)
+                {
+                <tr>
+                    <td>@users.UserId</td>
+                    <td>@users.Username</td>
+                    <td>@users.Password</td>
+                    <td>@users.Name</td>
+                    <td>@users.Surname</td>
+                    <td>@users.Text</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Users" asp-route-id="@users.UserId" class="btn btn-info btn-sm">Güncelle</a>
+
+                    </td>
+                    <td>
+                        <a onclick="return confirm('Silmek istediğinizden emin misiniz?')" asp-action="Delete" asp-controller="Users" asp-route-id="@users.UserId" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
